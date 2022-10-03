@@ -1,19 +1,84 @@
 {
-  "name": "cart",
-  "version": "0.0.1",
-  "dependencies": {
-    "@retter/rdk": "1.1.15",
-    "dot-prop": "6.0.1",
-    "lodash": "4.17.21",
-    "zod": "3.17.2"
-  },
-  "devDependencies": {
-    "@types/lodash": "4.14.178"
-  },
+  "name": "rio-cart",
+  "version": "1.0.35",
+  "description": "rio-cart",
+  "private": true,
+  "workspaces": [
+    "classes/*",
+    "packages/*"
+  ],
+  "main": "index.js",
   "scripts": {
-    "build": "tsc -b .",
+    "i": "for d in classes/*/ ; do (cd \"$d\" && echo \"installing dependencies for $d\" && npm i); done",
+    "build": "npm run apply:rules && rio g && turbo run lint && turbo run build",
+    "build-ci": "rio g && turbo run build",
+    "tests": "rio g && turbo run test",
+    "ci-tests": "rio g && turbo run ci-tests",
     "test": "ava",
-    "coverage": "nyc ava",
-    "export-models": "ts-node scripts/export-models.ts"
-  }
+    "coverage": "rio g && turbo run coverage",
+    "export-models": "turbo run export-models",
+    "lint": "turbo run lint",
+    "prettier": "prettier 'classes/**/**.ts'",
+    "prepare": "husky install",
+    "apply:rules": "npm run check-carets",
+    "check-carets": "ts-node ./scripts/caret-checker.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rettersoft/rio-cart.git"
+  },
+  "author": "Retter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rettersoft/rio-cart/issues"
+  },
+  "homepage": "https://github.com/rettersoft/rio-cart#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
+    "@retter/rio-cli": "1.7.0",
+    "@types/eslint": "8.4.1",
+    "@types/i18n": "0.13.2",
+    "@types/lodash": "4.14.178",
+    "@types/node": "17.0.9",
+    "@types/sinon": "10.0.8",
+    "@typescript-eslint/eslint-plugin": "5.21.0",
+    "@typescript-eslint/parser": "5.21.0",
+    "ajv": "8.9.0",
+    "ava": "4.0.1",
+    "aws-sdk": "2.1123.0",
+    "axios": "0.25.0",
+    "eslint": "8.14.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-n": "15.2.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-unicorn": "42.0.0",
+    "husky": "7.0.4",
+    "jsonschema": "1.4.0",
+    "nyc": "15.1.0",
+    "rimraf": "3.0.2",
+    "sinon": "12.0.1",
+    "ts-node": "10.4.0",
+    "tsconfig-paths": "^3.13.0",
+    "turbo": "1.2.6",
+    "typescript": "4.5.4",
+    "zod": "3.17.2",
+    "zod-to-json-schema": "3.17.0"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "@turf/distance": "6.5.0",
+    "@turf/helpers": "6.5.0",
+    "ajv-formats": "2.1.1",
+    "currency.js": "^2.0.4",
+    "dotenv": "16.0.0",
+    "g": "^2.0.1",
+    "lodash": "^4.17.21",
+    "moment-timezone": "0.5.34",
+    "yaml": "2.1.1",
+    "@elastic/elasticsearch": "8.4.0"
+  },
+  "auto-install-peers": true
 }

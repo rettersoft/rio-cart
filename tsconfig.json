@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ES2017", "dom"],
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictNullChecks": true,
+    "paths": {
+      "storeCatalog": ["packages/storeCatalog"],
+      "storeCatalog*": ["packages/storeCatalog/*"],
+      "utils/*": ["packages/utils/*"],
+      "utils": ["packages/utils"],
+      "persona-click/*": ["packages/persona-click/*"],
+      "persona-click": ["packages/persona-click"],
+      "cdh/*": ["packages/cdh/*"],
+      "cdh": ["packages/cdh"],
+      "sms-manager/*": ["packages/sms-manager/*"],
+      "sms-manager": ["packages/sms-manager"],
+      "places-lib/*": ["packages/places-lib/*"],
+      "places-lib": ["packages/places-lib"]
+    },
+    "types": ["node"],
+    "outDir": "dist",
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": ["**/node_modules/*", "**/dist/**", "test/*", "classes/**/node_modules/**", "classes/CDH/**", "classes/**/rio.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

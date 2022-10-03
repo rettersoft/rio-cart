@@ -1,0 +1,10 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "class-methods-use-this": "off",
+    "unicorn/no-array-reduce": "off",
+    "unicorn/prevent-abbreviations": "off"
+  }
+}

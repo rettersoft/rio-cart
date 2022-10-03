@@ -1,0 +1,5 @@
+classes/**/__tests__/*.test.ava.ts
+classes/**/tests/*.test.ava.ts
+playground
+rio.ts
+packages/utils/commonSchemas/cart.ts
