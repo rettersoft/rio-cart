@@ -2,7 +2,7 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
 import fs from 'fs'
 import path from 'path'
 import { ZodType } from 'zod'
-import { updateCartInput } from '../models'
+import { updateCartInput, updateCartOutput } from '../models'
 
 const modelExporter = (t: ZodType<any>, name: string) => {
   const r = zodToJsonSchema(t, { name, $refStrategy: 'none' })
@@ -10,3 +10,4 @@ const modelExporter = (t: ZodType<any>, name: string) => {
 }
 
 modelExporter(updateCartInput, 'UpdateCartInput')
+modelExporter(updateCartOutput, 'UpdateCartOutput')
