@@ -1,0 +1,15 @@
+authorizer: index.authorizer
+init: index.init
+getState: index.getState
+getInstanceId: index.getInstanceId
+methods:
+  - method: update
+    handler: cart.update
+    type: WRITE
+    inputModel: UpdateCartInput
+  - method: clear
+    handler: cart.clear
+    type: WRITE
+  - method: cartSummary
+    handler: cart.cartSummary
+    type: READ
